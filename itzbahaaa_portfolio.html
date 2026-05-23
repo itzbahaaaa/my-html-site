@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>itzbahaaa — Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #0a0a0f; color: #fff; padding: 0 0 60px; }
+    .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-bottom: 0.5px solid #1a0f33; }
+    .top-bar-name { font-size: 15px; font-weight: 500; color: #a78bfa; }
+    .top-bar-links { display: flex; gap: 20px; }
+    .top-bar-links a { font-size: 12px; color: #7a6a99; text-decoration: none; }
+    .top-bar-links a:hover { color: #c9a8ff; }
+    .hero { padding: 40px 40px 32px; border-bottom: 0.5px solid #2a1a4a; }
+    .hero-top { text-align: center; margin-bottom: 28px; }
+    .hero-name {
+      font-size: 48px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -1px;
+      text-shadow: 0 0 30px #7c3aed99, 0 0 60px #7c3aed44;
+      font-family: 'Georgia', serif;
+      text-transform: lowercase;
+    }
+    .hero-tagline { font-size: 13px; color: #7a6a99; margin-top: 6px; }
+    .hero-body { display: flex; align-items: center; gap: 24px; }
+    .logo-circle { width: 90px; height: 90px; border-radius: 50%; border: 2px solid #7c3aed; background: #1a0a2e; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 0 18px #7c3aed55; }
+    .logo-inner { font-size: 22px; font-weight: 700; color: #a78bfa; }
+    .bio-box { flex: 1; background: #120d22; border: 0.5px solid #3b2070; border-radius: 12px; padding: 16px 20px; }
+    .bio-box p { font-size: 14px; color: #b0a0cc; line-height: 1.7; }
+    .section { padding: 36px 40px 0; }
+    .section-title { font-size: 13px; font-weight: 500; color: #7c3aed; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+    .video-card { background: #120d22; border: 0.5px solid #3b2070; border-radius: 12px; overflow: hidden; cursor: pointer; transition: border-color 0.2s; text-decoration: none; display: block; }
+    .video-card:hover { border-color: #7c3aed; }
+    .video-thumb { width: 100%; aspect-ratio: 16/10; background: #1e1233; display: flex; align-items: center; justify-content: center; }
+    .play-btn { width: 36px; height: 36px; border-radius: 50%; background: #7c3aed33; border: 1.5px solid #7c3aed; display: flex; align-items: center; justify-content: center; }
+    .play-icon { width: 0; height: 0; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 12px solid #a78bfa; margin-left: 3px; }
+    .video-info { padding: 10px 12px; }
+    .video-label { font-size: 12px; font-weight: 500; color: #c9a8ff; }
+    .video-sub { font-size: 11px; color: #7a6a99; margin-top: 2px; }
+    .divider { border: none; border-top: 0.5px solid #2a1a4a; margin: 36px 40px 0; }
+    .contact-section { padding: 36px 40px 0; text-align: center; }
+    .contact-title { font-size: 18px; font-weight: 500; color: #c9a8ff; margin-bottom: 28px; }
+    .platforms { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .platform-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; position: relative; }
+    .platform-icon { width: 64px; height: 64px; border-radius: 18px; display: flex; align-items: center; justify-content: center; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+    .platform-icon:hover { transform: translateY(-4px); }
+    .ig-icon { background: #1a0a0a; border: 1.5px solid #e1306c; box-shadow: 0 0 18px #e1306c66, 0 0 40px #e1306c22; }
+    .dc-icon { background: #0a0c1a; border: 1.5px solid #5865f2; box-shadow: 0 0 18px #5865f266, 0 0 40px #5865f222; }
+    .em-icon { background: #0a1210; border: 1.5px solid #34d399; box-shadow: 0 0 18px #34d39966, 0 0 40px #34d39922; }
+    .platform-label { font-size: 12px; color: #7a6a99; }
+    .reveal-tag { display: none; margin-top: 6px; border-radius: 8px; padding: 7px 14px; font-size: 12px; white-space: nowrap; }
+    .reveal-tag.ig-tag { border: 0.5px solid #e1306c55; color: #e1306c; background: #1a0a0a; }
+    .reveal-tag.dc-tag { border: 0.5px solid #5865f255; color: #a5b4fc; background: #0a0c1a; }
+    .reveal-tag.em-tag { border: 0.5px solid #34d39955; color: #34d399; background: #0a1210; }
+    .reveal-tag.show { display: block; }
+    svg.picon { width: 30px; height: 30px; }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <span class="top-bar-name">itzbahaaa</span>
+    <div class="top-bar-links">
+      <a href="#">Work</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-top">
+      <div class="hero-name">itzbahaaa</div>
+      <div class="hero-tagline">Video Editor · Content Creator</div>
+    </div>
+    <div class="hero-body">
+      <div class="logo-circle"><span class="logo-inner">IB</span></div>
+      <div class="bio-box">
+        <p>I am your new video editor — my mission is simply to transform your boring video into a professional video that tells a story to get more viewers, whatever your social media platform.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Clips / Short Edits</div>
+    <div class="video-grid">
+      <a class="video-card" href="#" target="_blank">
+        <div class="video-thumb"><div class="play-btn"><div class="play-icon"></div></div></div>
+        <div class="video-info"><div class="video-label">Clip 01</div><div class="video-sub">Short form · 2024</div></div>
+      </a>
+      <a class="video-card" href="#" target="_blank">
+        <div class="video-thumb"><div class="play-btn"><div class="play-icon"></div></div></div>
+        <div class="video-info"><div class="video-label">Clip 02</div><div class="video-sub">Short form · 2024</div></div>
+      </a>
+      <a class="video-card" href="#" target="_blank">
+        <div class="video-thumb"><div class="play-btn"><div class="play-icon"></div></div></div>
+        <div class="video-info"><div class="video-label">Clip 03</div><div class="video-sub">Short form · 2024</div></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">VOD / Stream Edits</div>
+    <div class="video-grid">
+      <a class="video-card" href="#" target="_blank">
+        <div class="video-thumb"><div class="play-btn"><div class="play-icon"></div></div></div>
+        <div class="video-info"><div class="video-label">VOD Edit 01</div><div class="video-sub">Stream edit · 2024</div></div>
+      </a>
+      <a class="video-card" href="#" target="_blank">
+        <div class="video-thumb"><div class="play-btn"><div class="play-icon"></div></div></div>
+        <div class="video-info"><div class="video-label">VOD Edit 02</div><div class="video-sub">Stream edit · 2024</div></div>
+      </a>
+      <a class="video-card" href="#" target="_blank">
+        <div class="video-thumb"><div class="play-btn"><div class="play-icon"></div></div></div>
+        <div class="video-info"><div class="video-label">VOD Edit 03</div><div class="video-sub">Stream edit · 2024</div></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">The Good Clips ⚡</div>
+    <div class="video-grid">
+      <a class="video-card" href="#" target="_blank">
+        <div class="video-thumb"><div class="play-btn"><div class="play-icon"></div></div></div>
+        <div class="video-info"><div class="video-label">Best of 2024</div><div class="video-sub">Highlight reel</div></div>
+      </a>
+      <a class="video-card" href="#" target="_blank">
+        <div class="video-thumb"><div class="play-btn"><div class="play-icon"></div></div></div>
+        <div class="video-info"><div class="video-label">Top Moment</div><div class="video-sub">Highlight reel</div></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Long-Form Videos</div>
+    <div class="video-grid">
+      <a class="video-card" href="#" target="_blank">
+        <div class="video-thumb"><div class="play-btn"><div class="play-icon"></div></div></div>
+        <div class="video-info"><div class="video-label">Long Form 01</div><div class="video-sub">Documentary style · 2024</div></div>
+      </a>
+      <a class="video-card" href="#" target="_blank">
+        <div class="video-thumb"><div class="play-btn"><div class="play-icon"></div></div></div>
+        <div class="video-info"><div class="video-label">Long Form 02</div><div class="video-sub">Documentary style · 2024</div></div>
+      </a>
+      <a class="video-card" href="#" target="_blank">
+        <div class="video-thumb"><div class="play-btn"><div class="play-icon"></div></div></div>
+        <div class="video-info"><div class="video-label">Long Form 03</div><div class="video-sub">Documentary style · 2024</div></div>
+      </a>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="contact-section">
+    <div class="contact-title">Find me on</div>
+    <div class="platforms">
+
+      <div class="platform-wrap">
+        <div class="platform-icon ig-icon" onclick="toggle('ig')">
+          <svg class="picon" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="2" width="20" height="20" rx="6" stroke="#e1306c" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.5" stroke="#e1306c" stroke-width="1.8"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="#e1306c"/>
+          </svg>
+        </div>
+        <span class="platform-label">Instagram</span>
+        <div class="reveal-tag ig-tag" id="ig">coming soon</div>
+      </div>
+
+      <div class="platform-wrap">
+        <div class="platform-icon dc-icon" onclick="toggle('dc')">
+          <svg class="picon" viewBox="0 0 24 24" fill="none">
+            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" fill="#5865f2"/>
+          </svg>
+        </div>
+        <span class="platform-label">Discord</span>
+        <div class="reveal-tag dc-tag" id="dc">itzbahaaa</div>
+      </div>
+
+      <div class="platform-wrap">
+        <div class="platform-icon em-icon" onclick="toggle('em')">
+          <svg class="picon" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="4" width="20" height="16" rx="3" stroke="#34d399" stroke-width="1.8"/>
+            <path d="M2 7l10 7 10-7" stroke="#34d399" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="platform-label">Email</span>
+        <div class="reveal-tag em-tag" id="em">bahaaa.business44@gmail.com</div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('show');
+    }
+  </script>
+
+</body>
+</html>
